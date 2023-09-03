@@ -6,7 +6,7 @@ export default function Home() {
 
   const handleSubmit= async () => {
     const res = await fetch(
-      `http://localhost:3000/api/chat?message=Here is my list of to-do's, can you please suggest the order I should work on these and why: ${list.join(",")}`
+      `./api/chat?message=Here is my list of to-do's, can you please suggest the order I should work on these and why: ${list.join(",")}`
     )
     if (res.status !== 200) return
     const data = await res.json()
