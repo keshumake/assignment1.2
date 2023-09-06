@@ -6,8 +6,9 @@ export default function Home() {
 
   const handleSubmit= async () => {
     const res = await fetch(
-      `/api/chat?message=Here is my list of to-do's, can you please suggest the order I should work on these and why: ${list.join(",")}`
+      `${process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://assignment1-2-theta.vercel.app'}/api/chat?message=Here is my list of to-do's, can you please suggest the order I should work on these and why: ${list.join(",")}`
     )
+
     if (res.status !== 200) return
     const data = await res.json()
     setResponse(data.response);
